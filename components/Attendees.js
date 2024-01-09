@@ -188,42 +188,50 @@ const handleReset = ()=>{
         />
       )}
 
-      <form
-        className="w-full flex items-center justify-center mb-6"
-        onSubmit={handleSubmit}
-      >
-     
-        <input
-          type="text"
-          className="border-[1px] w-[80%] rounded-lg py-2 px-4 mr-3"
-          placeholder="Search via Passcode"
-          value={passcode}
-          onChange={(e) => {
-            setPasscode(e.target.value);
-            handleSearch();
-          }}
-        />
-                   <button className="border-[1px] p-3 rounded-full">
-          <BsSearch className="text-2xl" />
-        </button>
-  
-        <input
-          type="text"
-          className="border-[1px] w-[20%] rounded-lg py-2 px-4 mr-3"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          className="border-[1px] w-[20%] rounded-lg py-2 px-4 mr-3"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button className="border-[1px] p-3 rounded-full">Add User</button>
+<form
+  className="w-full flex flex-col items-center mb-6"
+  onSubmit={handleSubmit}
+>
+  {/* First line with search input and button */}
+  <div className="flex items-center mb-3">
+    <input
+      type="text"
+      className="border-[1px] w-[80%] rounded-lg py-2 px-4 mr-3"
+      placeholder="Recherchez un utilisateur"
+      value={passcode}
+      onChange={(e) => setPasscode(e.target.value)}
+    />
+    <button
+      type="button"
+      className="border-[1px] p-3 rounded-full"
+      onClick={handleSearch}
+    >
+      <BsSearch className="text-2xl" />
+    </button>
+  </div>
 
-      </form>
+  {/* Second line with larger inputs and Add User button */}
+  <div className="flex items-center">
+    <input
+      type="text"
+      className="border-[1px] w-[60%] rounded-lg py-2 px-4 mr-3"
+      placeholder="Name"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+    />
+    <input
+      type="text"
+      className="border-[1px] w-[60%] rounded-lg py-2 px-4 mr-3"
+      placeholder="Email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+    />
+    <button className="border-[1px] p-3 rounded-full">Ajoutez un utilisateur</button>
+  </div>
+</form>
+
+
+
       <div className="overflow-y-scroll max-h-[450px]">
         <table className="relative" {...getTableProps()}>
           <thead className="sticky top-0 bg-white z-10">
